@@ -1,0 +1,22 @@
+﻿@model Course
+
+<div class="container">
+    <div class="d-flex">
+        <img src="~/img/@Model.ImageUrl" class="rounded-3 me-5" style="width:300px"/>
+        <div class="d-flex flex-column">
+            <h4>@Model.Name</h4>
+            <span>@Model.Description</span>
+            <span><b>Eğitmen :</b> @Model.Instructor</span>
+            @if (Model.Tags != null )
+            {
+                <div class="d-flex mt-3">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <span class="bg-primary rounded-3 me-2 p-1 text-white" style="font-size: 11px">@tag</span>
+                    }
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@model List<Course>
+
+<div class="container">
+    <div class="d-flex align-items-center mb-4 flex-column">
+        <h4>Kurs Listesi</h4>
+        <span class="text-warning">Aşağıda isActive durumu true olmayan kurslar gösterilmez.</span>
+    </div>
+    <div class="d-flex">
+        @foreach (var course in Model)
+        {
+            @if(@course.isActive == true)
+            {
+                <div class="card rounded-3 me-3" style="width: 20rem;">
+                    <img class="card-img-top" src="~/img/@course.ImageUrl">
+                    <div class="card-body">
+                        <h5 class="card-title">@course.Name</h5>
+                        <p class="card-text">@course.Description</p>
+                        <a class="btn btn-primary" asp-controller="course" asp-action="details" asp-route-id="@course.Id">Detaylar</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
